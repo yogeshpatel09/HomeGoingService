@@ -10,8 +10,8 @@ function Landing() {
   return (
     <div className="p-4">
       {/* Categories Section */}
-      <h2 className="text-2xl font-bold mb-4">Categories</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4 mb-8">
+      <h2 className="text-2xl font-bold pb-4 bg-white">Categories</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4 mb-8 bg-white">
         {categories.map((category) => (
           <div
             key={category.id}
@@ -28,8 +28,8 @@ function Landing() {
       </div>
 
       {/* Products Section */}
-      <h2 className="text-2xl font-bold mb-4">Products</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
+      <h2 className="text-2xl font-bold bg-white pb-2">Products</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 bg-white p-8">
         {products.map((product) => (
           <div
             key={product.id}
@@ -58,8 +58,8 @@ function Landing() {
       </div>
 
       {/* View All Products Button */}
-      <Link href={'/allProduct'} className="text-center">
-        <button className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600">
+      <Link href={'/allProduct'} className="text-center w-full flex justify-center items-center py-4">
+        <button className="bg-blue-500 text-white px-6 py-2  text-center rounded-lg hover:bg-blue-600">
           View All Products
         </button>
       </Link>
