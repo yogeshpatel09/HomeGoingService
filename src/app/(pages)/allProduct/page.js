@@ -5,8 +5,11 @@ import { useCart } from '../cartContext/page';
 
 function Page() {
   const { addToCart } = useCart();
-
   const products = data.categories.flatMap((category) => category.products);
+
+  const handleAddToCart = (product) => {
+    addToCart(product);
+  };
 
   return (
     <div className="p-4">
@@ -33,7 +36,8 @@ function Page() {
               </span>
             </p>
             <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
-            onClick={addToCart}
+            onClick={() => handleAddToCart(product)}
+            
             >
               Add to Cart
             </button>
