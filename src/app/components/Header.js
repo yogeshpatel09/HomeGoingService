@@ -1,8 +1,11 @@
+"use client"
 import Link from 'next/link';
 import React from 'react'
 import { FaLuggageCart, FaSearch, FaUser, FaWhatsapp } from "react-icons/fa";
+import { useCart } from '../(pages)/cartContext/page';
 
 function Header() {
+  const { cartCount } = useCart();
   return (
     <div>
         <header>
@@ -27,9 +30,11 @@ function Header() {
             <div className="w-1/3 flex gap-6 justify-center">
             <Link href={'/LogIn'}>
             <FaUser className='text-2xl' />
+            
             </Link>
-            <Link href={'/cart'}>
+            <Link href={'/cart'} className='relative'>
             <FaLuggageCart className='text-2xl'/>
+            <span className='h-4 w-4 bg-blue-600 flex text-white justify-center items-center rounded-full absolute -top-2 -right-2'>{cartCount}</span>
             </Link>
             <Link href={'https://www.whatsapp.com/'}>
             <FaWhatsapp className='text-2xl' />

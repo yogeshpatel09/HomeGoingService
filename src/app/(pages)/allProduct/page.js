@@ -1,8 +1,11 @@
+"use client"
 import React from 'react';
 import data from '@/app/data'; // Adjust the path based on your folder structure
+import { useCart } from '../cartContext/page';
 
 function Page() {
-  // Extract all products from categories
+  const { addToCart } = useCart();
+
   const products = data.categories.flatMap((category) => category.products);
 
   return (
@@ -29,7 +32,9 @@ function Page() {
                 ₹{product.price}
               </span>
             </p>
-            <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
+            <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+            onClick={addToCart}
+            >
               Add to Cart
             </button>
           </div>
