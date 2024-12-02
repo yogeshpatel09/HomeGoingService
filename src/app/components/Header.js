@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react'
 import { FaLuggageCart, FaSearch, FaUser, FaWhatsapp } from "react-icons/fa";
 
@@ -24,9 +25,16 @@ function Header() {
                 
             </div>
             <div className="w-1/3 flex gap-6 justify-center">
+            <Link href={'/LogIn'}>
             <FaUser className='text-2xl' />
+            </Link>
+            <Link href={'/cart'}>
             <FaLuggageCart className='text-2xl'/>
+            </Link>
+            <Link href={'https://www.whatsapp.com/'}>
             <FaWhatsapp className='text-2xl' />
+            </Link>
+            
             </div>
         </div>
         
