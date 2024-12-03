@@ -1,19 +1,8 @@
-
+// app/layout.js
 import { CartProvider } from "./(pages)/cartContext/page";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import "./globals.css";
-
-// const geistSans = localFont({
-//   src: "./fonts/GeistVF.woff",
-//   variable: "--font-geist-sans",
-//   weight: "100 900",
-// });
-// const geistMono = localFont({
-//   src: "./fonts/GeistMonoVF.woff",
-//   variable: "--font-geist-mono",
-//   weight: "100 900",
-// });
 
 export const metadata = {
   title: "Create Next App",
@@ -23,18 +12,16 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="bg-zinc-200 "
-      >
+      <body className="bg-zinc-200">
         <CartProvider>
-        <div className="fixed bg-white w-full ">
-        <Header/>
-        </div>
-        <div className="pt-14 p-2">
-        {children}
-        </div>
-        <div className="">
-          <Footer/>
-        </div>
+          {/* Header */}
+          <div className="fixed top-0 bg-white w-full z-50 shadow-md">
+            <Header />
+          </div>
+          {/* Main Content */}
+          <div className="pt-20 p-2">{children}</div>
+          {/* Footer */}
+          <Footer />
         </CartProvider>
       </body>
     </html>
