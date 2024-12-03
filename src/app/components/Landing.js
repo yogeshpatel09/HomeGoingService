@@ -3,9 +3,21 @@ import React from "react";
 import data from '@/app/data' // Assuming data.js is in the same folder
 import Link from "next/link";
 
+import { useCart } from "../(pages)/cartContext/page";
+import Slider from "./Slider";
+import SliderData from "../SliderImages";
+
 function Landing() {
   const categories = data.categories;
-  const products = categories.flatMap((category) => category.products).slice(0, 10);
+  const product = categories.flatMap((category) => category.products).slice(0, 10);
+  const slides = SliderData ;
+
+  const { addToCart } = useCart();
+  const products = data.categories.flatMap((category) => category.products);
+
+  const handleAddToCart = (product) => {
+    addToCart(product);
+  };
 
   return (
     <div className="p-4">
@@ -27,10 +39,15 @@ function Landing() {
         ))}
       </div>
 
+      {/* Slider Section */}
+      <div className="bg-white w-full p-1 my-8">
+        <Slider slides={slides} />
+      </div>
+
       {/* Products Section */}
       <h2 className="text-2xl font-bold bg-white pb-2">Products</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 bg-white p-8">
-        {products.map((product) => (
+        {product.map((product) => (
           <div
             key={product.id}
             className="flex flex-col items-center border rounded-lg p-4 bg-white shadow-md"
@@ -50,7 +67,9 @@ function Landing() {
                 ₹{product.price}
               </span>
             </p>
-            <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
+            <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+            onClick={() => handleAddToCart(product)}
+            >
               Add to Cart
             </button>
           </div>

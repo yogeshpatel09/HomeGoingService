@@ -1,15 +1,12 @@
-"use client"
-import React from 'react';
-import data from '@/app/data'; // Adjust the path based on your folder structure
-import { useCart } from '../cartContext/page';
+// app/(pages)/products/page.js
+"use client";
+import React from "react";
+import data from "@/app/data"; // Adjust the path
+import { useCart } from "../cartContext/page";
 
 function Page() {
   const { addToCart } = useCart();
   const products = data.categories.flatMap((category) => category.products);
-
-  const handleAddToCart = (product) => {
-    addToCart(product);
-  };
 
   return (
     <div className="p-4">
@@ -26,18 +23,14 @@ function Page() {
               className="w-24 h-24 object-cover text-center rounded-full mb-3"
             />
             <h3 className="text-lg font-medium mb-2">{product.name}</h3>
-            <p className="text-sm text-gray-500 text-center mb-2">
-              {product.description}
-            </p>
+            <p className="text-sm text-gray-500 text-center mb-2">{product.description}</p>
             <p className="text-lg font-bold mb-4">
-              ₹{product.discountPrice}{' '}
-              <span className="text-sm text-gray-400 line-through">
-                ₹{product.price}
-              </span>
+              ₹{product.discountPrice}{" "}
+              <span className="text-sm text-gray-400 line-through">₹{product.price}</span>
             </p>
-            <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
-            onClick={() => handleAddToCart(product)}
-            
+            <button
+              className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+              onClick={() => addToCart(product)}
             >
               Add to Cart
             </button>
