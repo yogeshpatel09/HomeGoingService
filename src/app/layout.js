@@ -1,4 +1,5 @@
 
+import { CartProvider } from "./(pages)/cartContext/page";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import "./globals.css";
@@ -24,6 +25,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className="bg-zinc-200 "
       >
+        <CartProvider>
         <div className="fixed bg-white w-full ">
         <Header/>
         </div>
@@ -33,7 +35,7 @@ export default function RootLayout({ children }) {
         <div className="">
           <Footer/>
         </div>
-        
+        </CartProvider>
       </body>
     </html>
   );
