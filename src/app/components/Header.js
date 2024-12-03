@@ -38,7 +38,7 @@ function Header() {
           </div>
 
           <div className="w-1/3 flex gap-6 justify-center items-center">
-            <Link href={"/LogIn"}>
+            <Link href={"/Login"}>
               <FaUser className="text-2xl" />
             </Link>
             <div className="relative" onClick={toggleCart}>
